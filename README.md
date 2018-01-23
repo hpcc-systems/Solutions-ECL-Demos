@@ -59,3 +59,8 @@ spray; you don't have to do spray each file individually
 selecting Delimited Spray
 	1. This file is tab-delimited, so change Delimiters to read `\t`
 	1. Modify the target scope value to read `taxi_data`
+
+The Target Scope settings in the two spray operations place the raw data files
+in a location that matches what the ECL code expects.  If you want to use a
+different prefix, you can change the PREFIX attribute in
+[Taxi/Files.ecl](Taxi/Files.ecl).
