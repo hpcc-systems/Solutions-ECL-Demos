@@ -21,10 +21,12 @@ is included.  This data was collected from [Dark Sky](https://darksky.net/dev).
 Instructions:
 
 * Execute the [`Taxi/Data/download_raw_data.sh`](Taxi/Data/download_raw_data.sh)
-script.  This will use `wget` to download the contents of the S3 buckets defined
-in [`Taxi/Data/raw_data_urls.txt`](Taxi/Data/raw_data_urls.txt).  (It should be
-noted that the list of S3 buckets is derived from Todd Schneider's list, and
-that list defines the subset of data for this training.)
+script.  That script will create a new subdirectory named `data` and will use
+`wget` to download the contents of the S3 buckets defined in
+[`Taxi/Data/raw_data_urls.txt`](Taxi/Data/raw_data_urls.txt) into that
+subdirectory.  (It should be noted that the list of S3 buckets is derived from
+Todd Schneider's list, and that list defines the subset of data for this
+training.)
 
 	* You can execute the script on your local system and then copy the resulting
 files (~35GB) to your HPCC cluster's landing zone.
@@ -43,16 +45,16 @@ Instructions:
 1. Import the taxi data by choosing the files and selecting Delimited Spray
 	1. The default values are set for a .csv formatted file, which is correct for
 this data so no delimiters need to be changed
-	1. Modify the Target Scope value to read `taxi_data::raw` to set a filename
-prefix
+	1. Check the **Record Structure Present** checkbox, as each file contains the field
+definitions as the first line
+	1. Modify the **Target Scope** value to read `taxi_data::raw` to set a filename
+prefix; this value matches what is expected in the included ECL code
+	1. It would be a good idea to checked the **Compress** option, as these files are
+sizable
 	1. Note that you can select all of the taxi data files and perform the one
-spray; you don't have to do spray each file individually
+spray; you don't have to spray each file individually
 1. Import the weather data by selecting the `weather_new_york_city.txt` file and
 selecting Delimited Spray
-	1. This file is tab-delimited, so change Delimiters to read `\t`
-	1. Modify the target scope value to read `taxi_data`
-
-The Target Scope settings in the two spray operations place the raw data files
-in a location that matches what the ECL code expects.  If you want to use a
-different prefix, you can change the PREFIX attribute in
-[Taxi/Files.ecl](Taxi/Files.ecl).
+	1. This file is tab-delimited, so change **Delimiters** to read `\t`
+	1. Modify the **Target Scope** value to read `taxi_data`; this value matches what
+is expected in the included ECL code
