@@ -45,8 +45,8 @@ Instructions:
 1. Import the taxi data by choosing the files and selecting Delimited Spray
 	1. The default values are set for a .csv formatted file, which is correct for
 this data so no delimiters need to be changed
-	1. Check the **Record Structure Present** checkbox, as each file contains the field
-definitions as the first line
+	1. Check the **Record Structure Present** checkbox, as each file contains the
+field definitions as the first line
 	1. Modify the **Target Scope** value to read `taxi_data::raw` to set a filename
 prefix; this value matches what is expected in the included ECL code
 	1. It would be a good idea to checked the **Compress** option, as these files are
@@ -58,3 +58,39 @@ selecting Delimited Spray
 	1. This file is tab-delimited, so change **Delimiters** to read `\t`
 	1. Modify the **Target Scope** value to read `taxi_data`; this value matches what
 is expected in the included ECL code
+
+
+### What is in the data, really?
+
+The first step in working with unknown data is to figure out what is there.
+
+[`BWR_01_Profile_Taxi.ecl`](BWR_01_Profile_Taxi.ecl) runs the profiler against
+the entire taxi fare dataset and saves the result as a logical file so it can be
+easily referred to at a later time.  The goal is to get an idea of what kind of
+information is really stored within the data.  The immediate benefit is so that
+we can design an efficient ECL **RECORD** structure that better represents each
+fields' data type.  Additionally, the information in the profile gives us an
+indication of what kind of data is included in each field.
+
+Only a portion of the profiler's routines are executed, as some of the routines
+are designed more for strongly typed data (e.g. correlations amongst numeric
+fields).  The profiler outputs requested are, for each field:
+
+*	fill_rate:  How many records have a value
+*	cardinality:  How many unique values there
+*	best_ecl_types:  A hint to the 'real' data type
+*	lengths:  The min, max and average value length, if the values were
+expressed as strings
+*	patterns:  Show common and rare "patterns" of string data; patterns
+generalize upper- and lower-case lettering, numerics, and punctuation.
+*	modes:  The most common value
+
+This type of profile runs against the entire dataset in order to find any edge
+cases in the data (if we were interested in only the general shape and were okay
+with estimations, we could have asked the profiler to process only a sample of
+the data instead).  The taxi fare data is sizable, so be aware that this may
+take some time.
+
+[`BWR_01_Profile_Weather.ecl`](BWR_01_Profile_Weather.ecl) is the same profile,
+but run against the small weather dataset instead.  It will execute very quickly
+due to the data's small size.
