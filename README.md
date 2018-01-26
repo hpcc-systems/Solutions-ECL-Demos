@@ -34,6 +34,10 @@ Many training samples include a step for data profiling.  In important part of w
 
 An ECL-based data profiler has been included within these training samples.  [Profiler](DataPatterns/Profiler.ecl]) contains a rich set of analysis tools for examining both data you have not seen before (where fields are generically data typed as strings) as well as data that has been strongly typed.  Details regarding the Profiler are not included here; please see the embedded documentation for further details.
 
+Be sure to import the DataPatterns submodule before running the data profiling code.  If, after closing this repo, the DataPatterns directory is empty, you will need to explicitly update submodules:
+
+	git submodule update --init --recursive
+
 ### [Taxi Data](Taxi)
 
 This data is primarily New York City cab fare information from the Yellow Cab
