@@ -30,11 +30,27 @@ directory to your compiler's ECL Folders list (Preferences -> Compiler)
 
 ### A Note About Data Profiling
 
-Many training samples include a step for data profiling.  In important part of working with new data is finding out what is really there.  You may have been given a schema along with some data, but that often doesn't tell you how sparsely populated a given field may be, if there are incorrect values in some fields (e.g. a typeID field that should have only three possible values actually has four, or two), or even if there is suspected garbage (this crops up a lot when dealing with data passed as text files).  Knowing the "shape" of the data you're working with can influence your choice of analytic algorithms, challenge assumptions regarding usability of the data, and provide hints for data handling optimizations.
+Many training samples include a step for data profiling.  In important part of
+working with new data is finding out what is really there.  You may have been
+given a schema along with some data, but that often doesn't tell you how
+sparsely populated a given field may be, if there are incorrect values in some
+fields (e.g. a typeID field that should have only three possible values actually
+has four, or two), or even if there is suspected garbage (this crops up a lot
+when dealing with data passed as text files).  Knowing the "shape" of the data
+you're working with can influence your choice of analytic algorithms, challenge
+assumptions regarding usability of the data, and provide hints for data handling
+optimizations.
 
-An ECL-based data profiler has been included within these training samples.  [Profiler](DataPatterns/Profiler.ecl]) contains a rich set of analysis tools for examining both data you have not seen before (where fields are generically data typed as strings) as well as data that has been strongly typed.  Details regarding the Profiler are not included here; please see the embedded documentation for further details.
+An ECL-based data profiler has been included within these training samples. 
+[Profiler](DataPatterns/Profiler.ecl]) contains a rich set of analysis tools for
+examining both data you have not seen before (where fields are generically data
+typed as strings) as well as data that has been strongly typed.  Details
+regarding the Profiler are not included here; please see the embedded
+documentation for further details.
 
-Be sure to import the DataPatterns submodule before running the data profiling code.  If, after closing this repo, the DataPatterns directory is empty, you will need to explicitly update submodules:
+Be sure to import the DataPatterns submodule before running the data profiling
+code.  If, after cloning this repo, the DataPatterns directory is empty, you
+will need to explicitly update submodules:
 
 	git submodule update --init --recursive
 
