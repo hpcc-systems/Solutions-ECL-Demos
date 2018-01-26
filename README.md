@@ -5,6 +5,7 @@ working with HPCC Systems' big data technology.  More information on the
 technology can be found at https://hpccsystems.com.  The platform's Open Source
 repo is at https://github.com/hpcc-systems/HPCC-Platform.
 
+
 ### IDE Setup Information
 
 * [VS Code](https://code.visualstudio.com) - Cross-platform
@@ -25,6 +26,13 @@ page](https://hpccsystems.com/download)
 	* All code included here assumes that you have added this Training-Samples
 directory to your compiler's ECL Folders list (Preferences -> Compiler)
 	* Be sure to set the target of your jobs to "thor"
+
+
+### A Note About Data Profiling
+
+Many training samples include a step for data profiling.  In important part of working with new data is finding out what is really there.  You may have been given a schema along with some data, but that often doesn't tell you how sparsely populated a given field may be, if there are incorrect values in some fields (e.g. a typeID field that should have only three possible values actually has four, or two), or even if there is suspected garbage (this crops up a lot when dealing with data passed as text files).  Knowing the "shape" of the data you're working with can influence your choice of analytic algorithms, challenge assumptions regarding usability of the data, and provide hints for data handling optimizations.
+
+After you have an IDE installed, you should install a data profiler.  The profiler used in these samples can be found within [ECL DataPatterns](https://github.com/dcamper/DataPatterns).  Installation instructions are included in the README within that repo.  (Note:  If you do not install DataPatterns as a bundle, you should copy the repo into this Training-Samples directory on your local system.  That will place it in the correct location for the code included here to find it.)
 
 
 ### [Taxi Data](Taxi)
