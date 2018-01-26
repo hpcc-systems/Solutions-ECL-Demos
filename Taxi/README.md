@@ -20,10 +20,10 @@ is included.  This data was collected from [Dark Sky](https://darksky.net/dev).
 
 Instructions:
 
-* Execute the [`Taxi/Data/download_raw_data.sh`](Taxi/Data/download_raw_data.sh)
+* Execute the [`Data/download_raw_data.sh`](Data/download_raw_data.sh)
 script.  That script will create a new subdirectory named `data` and will use
 `wget` to download the contents of the S3 buckets defined in
-[`Taxi/Data/raw_data_urls.txt`](Taxi/Data/raw_data_urls.txt) into that
+[`Data/raw_data_urls.txt`](Data/raw_data_urls.txt) into that
 subdirectory.  (It should be noted that the list of S3 buckets is derived from
 Todd Schneider's list, and that list defines the subset of data for this
 training.)
@@ -35,7 +35,7 @@ you can copy just the two small files and execute the script there, saving the
 copy.
 
 * The weather data is already included here, in
-[`Taxi/Data/weather_new_york_city.txt`](Taxi/Data/weather_new_york_city.txt).
+[`Data/weather_new_york_city.txt`](Data/weather_new_york_city.txt).
 
 
 ### Importing the data into your HPCC cluster
