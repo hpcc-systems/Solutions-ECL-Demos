@@ -7,4 +7,4 @@ rawWeatherData := DATASET(Taxi.Files.Weather.PATH + '.txt', Taxi.Files.Weather.F
 OUTPUT(rawWeatherData, NAMED('rawWeatherDataSample'));
 
 rawWeatherProfileResults := DataPatterns.Profile(rawWeatherData, features := 'fill_rate,cardinality,best_ecl_types,lengths,patterns,modes');
-OUTPUT(rawWeatherProfileResults,, Taxi.Files.PATH_PREFIX + '::raw_weather_data_profile', OVERWRITE);
+OUTPUT(rawWeatherProfileResults,, Taxi.Files.PATH_PREFIX + '::weather_new_york_city_data_profile', OVERWRITE);
