@@ -1,0 +1,3 @@
+[submodule "DataPatterns"]
+	path = DataPatterns
+	url = https://github.com/dcamper/DataPatterns.git
