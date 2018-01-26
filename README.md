@@ -42,7 +42,7 @@ assumptions regarding usability of the data, and provide hints for data handling
 optimizations.
 
 An ECL-based data profiler has been included within these training samples. 
-[Profiler](DataPatterns/Profiler.ecl]) contains a rich set of analysis tools for
+DataPatterns.Profiler() contains a rich set of analysis tools for
 examining both data you have not seen before (where fields are generically data
 typed as strings) as well as data that has been strongly typed.  Details
 regarding the Profiler are not included here; please see the embedded
